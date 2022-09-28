@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:profile_edit_task/Constants/Styles/textstyles.dart';
 import 'package:profile_edit_task/Routes/routes.dart';
+import 'package:profile_edit_task/Services/Profile/profile_services.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,12 +14,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    Get.put(ProfileServices());
     final mediaQuery = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.amberAccent,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.amberAccent,
+        backgroundColor: Colors.white,
         title: const Center(
           child: Text(
             'Profile',
@@ -72,76 +74,106 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.all(15.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       'Name',
                       style: kTitleTextStyle,
                     ),
-                    Text(
-                      'Vibhor Vats',
-                      style: kSubtitleTextStyle,
-                    ),
-                    SizedBox(
+                    Get.find<ProfileServices>().name.isEmpty
+                        ? const Text(
+                            '-',
+                            style: kSubtitleTextStyle,
+                          )
+                        : Text(
+                            '${Get.find<ProfileServices>().name}',
+                            style: kSubtitleTextStyle,
+                          ),
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       'Email',
                       style: kTitleTextStyle,
                     ),
-                    Text(
-                      'vibhor.stav@gmail.com',
-                      style: kSubtitleTextStyle,
-                    ),
-                    SizedBox(
+                    Get.find<ProfileServices>().name.isEmpty
+                        ? const Text(
+                            '-',
+                            style: kSubtitleTextStyle,
+                          )
+                        : Text(
+                            '${Get.find<ProfileServices>().email}',
+                            style: kSubtitleTextStyle,
+                          ),
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       'City',
                       style: kTitleTextStyle,
                     ),
-                    Text(
-                      'Guragon',
-                      style: kSubtitleTextStyle,
-                    ),
-                    SizedBox(
+                    Get.find<ProfileServices>().name.isEmpty
+                        ? const Text(
+                            '-',
+                            style: kSubtitleTextStyle,
+                          )
+                        : Text(
+                            '${Get.find<ProfileServices>().city}',
+                            style: kSubtitleTextStyle,
+                          ),
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       'State',
                       style: kTitleTextStyle,
                     ),
-                    Text(
-                      'Haryana',
-                      style: kSubtitleTextStyle,
-                    ),
-                    SizedBox(
+                    Get.find<ProfileServices>().name.isEmpty
+                        ? const Text(
+                            '-',
+                            style: kSubtitleTextStyle,
+                          )
+                        : Text(
+                            '${Get.find<ProfileServices>().state}',
+                            style: kSubtitleTextStyle,
+                          ),
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       'Country',
                       style: kTitleTextStyle,
                     ),
-                    Text(
-                      'India',
-                      style: kSubtitleTextStyle,
-                    ),
-                    SizedBox(
+                    Get.find<ProfileServices>().name.isEmpty
+                        ? const Text(
+                            '-',
+                            style: kSubtitleTextStyle,
+                          )
+                        : Text(
+                            '${Get.find<ProfileServices>().country}',
+                            style: kSubtitleTextStyle,
+                          ),
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       'Phone',
                       style: kTitleTextStyle,
                     ),
-                    Text(
-                      '+91 9898989898',
-                      style: kSubtitleTextStyle,
-                    ),
-                    SizedBox(
+                    Get.find<ProfileServices>().name.isEmpty
+                        ? const Text(
+                            '-',
+                            style: kSubtitleTextStyle,
+                          )
+                        : Text(
+                            '${Get.find<ProfileServices>().phone}',
+                            style: kSubtitleTextStyle,
+                          ),
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

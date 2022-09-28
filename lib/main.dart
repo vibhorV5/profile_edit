@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       getPages: Routes.routes,
       title: 'Profile Edit task',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        primarySwatch: Colors.grey,
       ),
       home: const HomeScreen(),
     );
